@@ -10,31 +10,31 @@ enum Mean {
     EIGTH(8, "8"),
     NINE(9, "9"),
     TEN(10, "10"),
-    JACK(11, "Jack"),
-    QUEEN(12, "Queen"),
-    KING(13, "King"),
-    ACE(14, "Ace"),
-    JOKER_BW(501, "JokerBW"),
-    JOKER_RED(502, "JokerR");
+    JACK(11, "J"),
+    QUEEN(12, "Q"),
+    KING(13, "K"),
+    ACE(14, "A"),
+    JOKER_BW(15, "Jr"),
+    JOKER_R(16, "Jr");
 
-    private final int num;
-    private final String meanCard;
+    private final int priorityMean;
+    private final String nameMean;
 
-    Mean(int num, String meanCard) {
-        this.num = num;
-        this.meanCard = meanCard;
+    Mean(int priorityMean, String nameMean) {
+        this.priorityMean = priorityMean;
+        this.nameMean = nameMean;
     }
 
-    int num() {
-        return num;
+    int priorityMean() {
+        return priorityMean;
     }
 
-    String meanCard() {
-        return meanCard;
+    String nameMean() {
+        return nameMean;
     }
 
     @Override
     public String toString() {
-        return String.format("%2d: %-7s", num, meanCard);
+        return String.format("%2d: %-7s", priorityMean, nameMean);
     }
 }
