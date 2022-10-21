@@ -6,11 +6,11 @@ public class Player {
     private String name;
     private int bank;
 
-    Player (){
+    public Player() {
         this("Alex", START_BANK);
     }
 
-    Player (String name, int bank){
+    public Player(String name, int bank) {
         this.name = name;
         this.bank = bank;
     }

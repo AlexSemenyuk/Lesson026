@@ -7,11 +7,11 @@ public class Diller {
     private int bank;
 
 
-    Diller (){
+    public Diller (){
         this("Casino Red Dragon", START_BANK);
     }
 
-    Diller (String name, int bank){
+    public Diller (String name, int bank){
         this.name = name;
         this.bank = bank;
     }

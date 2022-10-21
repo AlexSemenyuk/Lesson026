@@ -1,6 +1,6 @@
 package org.itstep;
 
-enum Mean {
+public enum Mean {
     TWO(2, "2"),
     THREE(3, "3"),
     FOUR(4, "4"),
@@ -25,11 +25,11 @@ enum Mean {
         this.nameMean = nameMean;
     }
 
-    int priorityMean() {
+    public int priorityMean() {
         return priorityMean;
     }
 
-    String nameMean() {
+    public String nameMean() {
         return nameMean;
     }
 

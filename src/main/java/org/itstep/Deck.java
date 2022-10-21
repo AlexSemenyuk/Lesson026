@@ -7,17 +7,20 @@ import java.util.Random;
 
 public class Deck implements Iterable {
 
-   static class DeckIterator implements Iterator {
+    static class DeckIterator implements Iterator {
         private final Card[] cards;
         private int index;
+
         public DeckIterator(Card[] cards) {
             this.cards = cards;
             this.index = -1;
         }
+
         @Override
         public boolean hasNext() {
             return ++index < cards.length;
         }
+
         @Override
         public Object next() {
             return cards[index];
@@ -34,6 +37,7 @@ public class Deck implements Iterable {
                         - ((Card) o2).suite.prioritySuite() - ((Card) o2).mean.priorityMean();
             }
         }
+
         // Comparator для сортировки по убыванию (учитывается приоритет Suite и Meam)
         static class CardComparatorByDown implements Comparator {
             @Override
@@ -51,6 +55,7 @@ public class Deck implements Iterable {
                 return random.nextInt(3) - 1;
             }
         }
+
         private final Suite suite;
         private final Mean mean;
         private int priority;
@@ -143,7 +148,7 @@ public class Deck implements Iterable {
                     Card card = new Card(suite, mean, suite.prioritySuite() + mean.priorityMean());
                     if (amount == DECK_54 && i < DECK_54 - 2 &&
                             checkCard(card) &&
-                            !card.getMean().nameMean().equals("Jr") ) {
+                            !card.getMean().nameMean().equals("Jr")) {
                         addCard(card);
                         break label;
                     }
@@ -152,7 +157,7 @@ public class Deck implements Iterable {
                             !card.getMean().nameMean().equals("3") &&
                             !card.getMean().nameMean().equals("4") &&
                             !card.getMean().nameMean().equals("5") &&
-                            !card.getMean().nameMean().equals("Jr") ) {
+                            !card.getMean().nameMean().equals("Jr")) {
                         addCard(card);
                         break label;
                     }
@@ -161,50 +166,50 @@ public class Deck implements Iterable {
             }
         }
         if (amount == DECK_54) {
-            addCard(new Card(Suite.FOR_JOCKER_BW, Mean.JOKER_BW, Suite.FOR_JOCKER_BW.prioritySuite() + Mean.JOKER_BW.priorityMean() ) );
-            addCard(new Card(Suite.FOR_JOCKER_R, Mean.JOKER_R, Suite.FOR_JOCKER_R.prioritySuite() + Mean.JOKER_R.priorityMean() ) );
+            addCard(new Card(Suite.FOR_JOCKER_BW, Mean.JOKER_BW, Suite.FOR_JOCKER_BW.prioritySuite() + Mean.JOKER_BW.priorityMean()));
+            addCard(new Card(Suite.FOR_JOCKER_R, Mean.JOKER_R, Suite.FOR_JOCKER_R.prioritySuite() + Mean.JOKER_R.priorityMean()));
         }
     }
 
-    // Создание колоды BlackJack или "Очко"
-    public void addDeckBlackJack() {
-        Suite[] suites = Suite.values();
-        Mean[] means = Mean.values();
-
-        for (int i = 0; i < amount; i++) {
-            label:
-            for (Suite suite : suites) {
-                for (Mean mean : means) {
-                    int prior = 0;
-                    if (mean.nameMean().equals("J") ||
-                            mean.nameMean().equals("Q") ||
-                            mean.nameMean().equals("K")){
-                        prior = 10;
-                    } else if (mean.nameMean().equals("A")) {
-                        prior = 11;
-                    } else {
-                        prior = mean.priorityMean();
-;                    }
-
-                    Card card = new Card(suite, mean, prior);
-                    if (amount == DECK_52 && checkCard(card) &&
-                            !card.getMean().nameMean().equals("Jr") ) {
-                        addCard(card);
-                        break label;
-                    }
-                    if (amount == DECK_36 && checkCard(card) &&
-                            !card.getMean().nameMean().equals("2") &&
-                            !card.getMean().nameMean().equals("3") &&
-                            !card.getMean().nameMean().equals("4") &&
-                            !card.getMean().nameMean().equals("5") &&
-                            !card.getMean().nameMean().equals("Jr") ) {
-                        addCard(card);
-                        break label;
-                    }
-                }
-            }
-        }
-    }
+    // Создание колоды BlackJack
+//    public void addDeckBlackJack() {
+//        Suite[] suites = Suite.values();
+//        Mean[] means = Mean.values();
+//
+//        for (int i = 0; i < amount; i++) {
+//            label:
+//            for (Suite suite : suites) {
+//                for (Mean mean : means) {
+//                    int prior = 0;
+//                    if (mean.nameMean().equals("J") ||
+//                            mean.nameMean().equals("Q") ||
+//                            mean.nameMean().equals("K")){
+//                        prior = 10;
+//                    } else if (mean.nameMean().equals("A")) {
+//                        prior = 11;
+//                    } else {
+//                        prior = mean.priorityMean();
+//;                    }
+//
+//                    Card card = new Card(suite, mean, prior);
+//                    if (amount == DECK_52 && checkCard(card) &&
+//                            !card.getMean().nameMean().equals("Jr") ) {
+//                        addCard(card);
+//                        break label;
+//                    }
+//                    if (amount == DECK_36 && checkCard(card) &&
+//                            !card.getMean().nameMean().equals("2") &&
+//                            !card.getMean().nameMean().equals("3") &&
+//                            !card.getMean().nameMean().equals("4") &&
+//                            !card.getMean().nameMean().equals("5") &&
+//                            !card.getMean().nameMean().equals("Jr") ) {
+//                        addCard(card);
+//                        break label;
+//                    }
+//                }
+//            }
+//        }
+//    }
 
     // Добавление карты
     public Card[] addCard(Card newCard) {
@@ -232,7 +237,7 @@ public class Deck implements Iterable {
 
     // Убрать первую карту из колоды
     public Card[] subOneCard() {
-        cards = Arrays.copyOfRange(cards, 1, cards.length-1);
+        cards = Arrays.copyOfRange(cards, 1, cards.length);
         return cards;
     }
 
@@ -275,6 +280,7 @@ public class Deck implements Iterable {
         }
     }
 
+    // Перемешивание карт
     public void shuffle() {
         Card.CardComparatorForShuffle comparatorForShuffle = new Card.CardComparatorForShuffle();
         Arrays.sort(cards, comparatorForShuffle);

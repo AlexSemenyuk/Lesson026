@@ -1,7 +1,9 @@
 package org.itstep;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
+import org.itstep.game.BlackJack;
+import org.itstep.game.Games;
+import org.itstep.game.Ochko;
+
 import java.util.Scanner;
 
 /**
@@ -19,17 +21,15 @@ public class Task01 {
         while (true) {
             switch (game) {
                 case 1:
-                    GameTable blackJack = new GameTable();
-                    blackJack.preparationStart("Black Jack");
-                    blackJack.gameBlackJack();
+                    Games blackJack = new BlackJack();
+                    blackJack.game("Black Jack");
                     break label1;
                 case 2:
-                    GameTable ochko = new GameTable();
-                    ochko.preparationStart("<Очко>");
-
+//                    Games ochko = new Ochko();      // не реализована
+//                    ochko.game("<Очко>");
                     break label1;
                 default:
-                    System.out.println("Ds неправильно ввели цифру");
+                    System.out.println("Вы неправильно ввели цифру");
                     break;
             }
 
@@ -38,11 +38,7 @@ public class Task01 {
 }
 
 
-
-
-
-
-        // Создание колод
+// Создание колод
 //        Deck BlackJack = new Deck("Колода на 52 карты для игры Black Jack", Deck.DECK_52);
 //        BlackJack.addDeckBlackJack();
 //        BlackJack.printDeck();
@@ -59,7 +55,7 @@ public class Task01 {
 //        BlackJack.shuffle();
 //        BlackJack.printDeck();
 
-        // Создание диллера и игрока
+// Создание диллера и игрока
 //        Diller diller = new Diller();
 //        System.out.println(diller.toString());
 //
@@ -70,11 +66,7 @@ public class Task01 {
 //        Ochko.printDeck();
 
 
-
-
-
-
-        // Создание колод
+// Создание колод
 //        Deck deck1 = new Deck("Колода 54 карты", Deck.DECK_54);
 //        deck1.addDeckClassic();
 //        deck1.printDeck();  // Вывод в консоль
@@ -87,7 +79,7 @@ public class Task01 {
 //        deck3.addDeckClassic();
 //        deck3.printDeck();  // Вывод в консоль
 
-        // Перемешивание (через Comparator)
+// Перемешивание (через Comparator)
 //        deck1.shuffle();
 //        deck1.printDeck();
 //
@@ -97,7 +89,7 @@ public class Task01 {
 //        deck3.shuffle();
 //        deck3.printDeck();
 
-        // Сортировка по убыванию (через Comparator)
+// Сортировка по убыванию (через Comparator)
 //        Deck.Card.CardComparatorByPriorityDown comparatorByPriorityDown = new Deck.Card.CardComparatorByPriorityDown();
 //        Arrays.sort(deck1.cards, comparatorByPriorityDown);
 //        deck1.printDeck();
@@ -108,7 +100,7 @@ public class Task01 {
 //        Arrays.sort(deck3.cards, comparatorByPriorityDown);
 //        deck3.printDeck();
 
-        // Сортировка по возрастанию (через Comparable)
+// Сортировка по возрастанию (через Comparable)
 //        Arrays.sort(deck1.cards);
 //        deck1.printDeck();
 //
@@ -118,7 +110,7 @@ public class Task01 {
 //        Arrays.sort(deck3.cards);
 //        deck3.printDeck();
 
-        // Вывод карт через перебор в foreach
+// Вывод карт через перебор в foreach
 //        System.out.println(deck3.getNameDeck() + "(перебор)");
 //        for (Object card : deck3) {
 //            System.out.println(card.toString());

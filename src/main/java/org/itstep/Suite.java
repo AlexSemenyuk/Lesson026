@@ -1,7 +1,7 @@
 package org.itstep;
 
 
-enum Suite {
+public enum Suite {
 
     SPADES("Spades", "♠", 100),
     HEARTS("Hearts", "♥", 200),
@@ -10,9 +10,9 @@ enum Suite {
     FOR_JOCKER_BW("Black and White", "B", 500),
     FOR_JOCKER_R("Red", "R", 500);
 
-    private final String nameSuite;
-    private final String signSuite;
-    private final int prioritySuite;
+    public final String nameSuite;
+    public final String signSuite;
+    public final int prioritySuite;
 
     Suite(String nameSuite, String signSuite, int prioritySuite) {
         this.signSuite = signSuite;
