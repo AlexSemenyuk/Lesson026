@@ -17,7 +17,7 @@ public class Task01 {
         Scanner scanner = new Scanner(System.in);
         System.out.print("В какую игру сыграем (1-Black Jack, 2-<Очко>): >>> ");
         int game = scanner.nextInt();
-        label1:
+        label1: // можливо обійтись без цієї мітки?
         while (true) {
             switch (game) {
                 case 1:
@@ -37,7 +37,7 @@ public class Task01 {
     }
 }
 
-
+// Це краще прибрати
 // Создание колод
 //        Deck BlackJack = new Deck("Колода на 52 карты для игры Black Jack", Deck.DECK_52);
 //        BlackJack.addDeckBlackJack();
