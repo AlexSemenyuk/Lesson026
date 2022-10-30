@@ -1,6 +1,6 @@
 package org.itstep;
 
-public class Player {
+public class Player { // Мені здається, що ділер та ігрок мають дуже схожу логіку. Можливо треба було створити один клас (при необхідності можно було реалізувати успадуквання)
     private static final int START_BANK = 1_000;
 
     private String name;
